@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.example.model.Actuacion" table="ACTUACION">
+        <id name="Id" column="Id">
+            <generator class="native"></generator>
+        </id>
+        <property name="IdFestival" type="int" column="IdFestival"/>
+        <many-to-one name="festival" column="IdFestival" not-null="true"
+                     insert="false" update="false"/>
+        <property name="Nombre" type="string" column="Nombre"/>
+        <property name="Descripcion" type="string" column="Descripcion"/>
+        <property name="Grupo" type="string" column="Grupo"/>
+        <property name="Escenario" type="string" column="Escenario"/>
+        <property name="Inicio" type="timestamp" column="Inicio"/>
+        <property name="Fin" type="timestamp" column="Fin"/>
+
+
+
+    </class>
+</hibernate-mapping>
