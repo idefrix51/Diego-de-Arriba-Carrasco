@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="gacelapatientApi.GacelaApi.model.Ci_medica" table="Ci_medicas">
+        <id name="ci_medica_ID" column="ci_medica_ID">
+            <generator class="native"></generator>
+        </id>
+        <version name="optLock" type="int" column="opt_lock" generated="never"  />
+        <property name="fecha" type="timestamp" column="fecha"/>
+        <property name="anotacion" type="string" column="anotacion"/>
+        <property name="id_paciente" type="int" column="id_paciente"/>
+        <property name="id_ci_tipo" type="int" column="id_ci_tipo"/>
+        <many-to-one name="paciente" column="id_paciente" class="gacelapatientApi.GacelaApi.model.Paciente" not-null="true" insert="false" update="false" fetch="select">
+        </many-to-one>
+        <many-to-one name="ci_tipo" column="id_ci_tipo" class="gacelapatientApi.GacelaApi.model.Ci_tipo" not-null="true" insert="false" update="false" fetch="select">
+        </many-to-one>
+
+
+    </class>
+</hibernate-mapping>
+

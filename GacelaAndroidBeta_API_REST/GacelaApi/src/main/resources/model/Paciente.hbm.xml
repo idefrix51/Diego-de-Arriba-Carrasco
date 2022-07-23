@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="gacelapatientApi.GacelaApi.model.Paciente" table="Pacientes">
+        <id name="id" column="id">
+            <generator class="native"></generator>
+        </id>
+        <version name="optLock" type="int" column="opt_lock" generated="never"  />
+        <property name="nombre" type="string" column="nombre"/>
+        <property name="apellidos" type="string" column="apellidos"/>
+        <property name="fechaNacimento" type="timestamp" column="fecha_nacimiento"/>
+        <property name="genero" type="string" column="genero"/>
+        <property name="cipAutonomico" type="string" column="CIP_autonomico"/>
+        <property name="cipNacional" type="string" column="CIP_nacional"/>
+        <property name="nif" type="string" column="NIF"/>
+        <property name="domicilio" type="string" column="domicilio"/>
+        <property name="mobilePhone" type="string" column="mobile_phone"/>
+        <property name="email" type="string" column="email"/>
+        <property name="tutorLegal" type="string" column="tutor_legal"/>
+        <property name="foto" type="byte[]" column="foto"/>
+        <property name="password" type="string" column="password"/>
+
+
+        <bag name="ci_medicas" table="Ci_medicas"  cascade="all" inverse="true" lazy="true" fetch="select">
+            <key column="id_paciente"></key>
+            <one-to-many class="gacelapatientApi.GacelaApi.model.Ci_medica"/>
+        </bag>
+
+        <bag name="historicos_clinicos" table="Historicos_clinicos"  cascade="all" inverse="true" lazy="true" fetch="select">
+            <key column="id_paciente"></key>
+            <one-to-many class="gacelapatientApi.GacelaApi.model.Historico_clinico"/>
+        </bag>
+
+        <bag name="mediPacientes" table="MediPacientes"  cascade="all" inverse="true" lazy="true" fetch="select">
+            <key column="id_paciente"></key>
+            <one-to-many class="gacelapatientApi.GacelaApi.model.MediPaciente"/>
+        </bag>
+
+        <bag name="registro_var_fisicas" table="Registro_var_fisicas"  cascade="all" inverse="true" lazy="true" fetch="select">
+            <key column="id_paciente"></key>
+            <one-to-many class="gacelapatientApi.GacelaApi.model.Registro_var_fisica"/>
+        </bag>
+
+    </class>
+</hibernate-mapping>
+

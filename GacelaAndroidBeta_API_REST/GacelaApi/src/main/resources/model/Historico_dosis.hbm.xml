@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="gacelapatientApi.GacelaApi.model.Historico_dosis" table="Historicos_dosis">
+        <id name="historico_dosis_ID" column="historico_dosis_ID">
+            <generator class="native"></generator>
+        </id>
+        <version name="optLock" type="int" column="opt_lock" generated="never"  />
+        <property name="dosis" type="boolean" column="dosis"/>
+        <property name="fecha" type="timestamp" column="fecha"/>
+        <property name="id_medipaciente" type="int" column="id_medipaciente"/>
+
+        <many-to-one name="mediPaciente" column="id_medipaciente" class="gacelapatientApi.GacelaApi.model.MediPaciente" not-null="true" insert="false" update="false" fetch="select">
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>
+

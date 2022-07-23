@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="gacelapatientApi.GacelaApi.model.Medicamento" table="Medicamentos">
+        <id name="medicamento_ID" column="medicamento_ID">
+            <generator class="native"></generator>
+        </id>
+        <version name="optLock" type="int" column="opt_lock" generated="never"  />
+        <property name="nombre" type="string" column="nombre"/>
+        <property name="descripcion" type="string" column="descripcion"/>
+
+        <bag name="mediPacientes" table="MediPacientes"  cascade="all" inverse="true" lazy="true" fetch="select">
+            <key column="id_medicamento"></key>
+            <one-to-many class="gacelapatientApi.GacelaApi.model.MediPaciente"/>
+        </bag>
+
+
+    </class>
+</hibernate-mapping>
+

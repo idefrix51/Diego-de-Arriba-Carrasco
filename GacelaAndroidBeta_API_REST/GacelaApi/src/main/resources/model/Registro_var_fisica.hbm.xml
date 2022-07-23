@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="gacelapatientApi.GacelaApi.model.Registro_var_fisica" table="Registro_var_fisicas">
+        <id name="registro_var_fisica_ID" column="registro_var_fisica_ID">
+            <generator class="native"></generator>
+        </id>
+        <version name="optLock" type="int" column="opt_lock" generated="never"  />
+        <property name="peso" type="int" column="peso"/>
+        <property name="c_diarias" type="int" column="c_diarias"/>
+        <property name="altura" type="int" column="altura"/>
+        <property name="peso_ideal" type="int" column="peso_ideal"/>
+        <property name="fecha" type="timestamp" column="fecha"/>
+
+        <property name="id_paciente" type="int" column="id_paciente"/>
+
+        <many-to-one name="paciente" column="id_paciente" class="gacelapatientApi.GacelaApi.model.Paciente" not-null="true" insert="false" update="false" fetch="select">
+        </many-to-one>
+
+        <bag name="registros_GoogleFit" table="Registros_GoogleFit"  cascade="all" inverse="true" lazy="true" fetch="select">
+            <key column="id_registro_var_fisica"></key>
+            <one-to-many class="gacelapatientApi.GacelaApi.model.Registro_GoogleFit"/>
+        </bag>
+
+        <bag name="calorias_diarias_corporales" table="Calorias_diarias_corporales"  cascade="all" inverse="true" lazy="true" fetch="select">
+            <key column="id_registro_var_fisica"></key>
+            <one-to-many class="gacelapatientApi.GacelaApi.model.Calorias_diarias_corporal"/>
+        </bag>
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+    
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!-- DB Dialect -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">123456</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/gacelapatientapp</property>
+
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property> <!-- Show SQL formatted -->
+        <property name="hibernate.use_sql_comments">true</property>
+        
+        <property name="connection_pool_size">1</property>
+        
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+
+        <mapping resource="model/Calorias_diarias_corporal.hbm.xml"/>
+        <mapping resource="model/Ci_medica.hbm.xml"/>
+        <mapping resource="model/Ci_tipo.hbm.xml"/>
+        <mapping resource="model/Historico_clinico.hbm.xml"/>
+        <mapping resource="model/Historico_dosis.hbm.xml"/>
+        <mapping resource="model/Medicamento.hbm.xml"/>
+        <mapping resource="model/MediPaciente.hbm.xml"/>
+        <mapping resource="model/Paciente.hbm.xml"/>
+        <mapping resource="model/Registro_GoogleFit.hbm.xml"/>
+        <mapping resource="model/Registro_var_fisica.hbm.xml"/>
+        <mapping resource="model/Variable.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
