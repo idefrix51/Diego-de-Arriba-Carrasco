@@ -1,5 +1,5 @@
 # Diego de Arriba Carrasco
- repositorio donde muestro distintos proyectos realizados en el FP de desarrollo de aplicaciones multiplataforma y web tareas que he ido realizando.
+ repositorio donde muestro distintos proyectos realizados en el FP de desarrollo de aplicaciones multiplataforma y web.
  
 AccesoDatosPractica: practica de creacion de proyecto que conecte con una base de datos SQLServer y realice funciones en esca con los dao.
 
